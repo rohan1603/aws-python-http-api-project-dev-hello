@@ -1,0 +1,23 @@
+org: rohannimje
+app: aws-python-http-api-project
+service: aws-python-http-api-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-2
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+  bye:
+    handler: handler.bye
+    events:
+      - httpApi:
+          path: /bye
+          method: get
